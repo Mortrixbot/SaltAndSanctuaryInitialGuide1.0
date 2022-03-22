@@ -1,0 +1,637 @@
+/* =====-===== | RESET | =====-===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =====-===== | VARIABLES | =====-===== */
+
+:root {
+  --hue: 159;
+  /* = | HSL Color Mode | = */
+  --base-color: hsl(var(--hue) 0% 98%);
+  --base-color-second: hsl(var(--hue) 0% 3%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --tittle-color: hsl(0 0% 98%);
+  --text-color: hsl(0, 0%, 3%);
+  --body-color: hsl(0, 0%, 25%);
+
+  /* = | Fonts | = */
+  --tittle-font-size: 1.875rem;
+}
+
+/* =====-===== | BASE | =====-===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 400 1rem 'Merriweather', sans-serif;
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.tittle {
+  font: 700 var(--tittle-font-size) 'Merriweather', sans-serif;
+  color: var(--tittle-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====-===== | BUTTON WIKI | =====-===== */
+
+.button {
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 700 1rem 'Merriweather', sans-serif;
+  transition: background 0.3s;
+  color: var(--tittle-color);
+  background-color: var(--text-color);
+}
+
+.button:hover {
+  background: hsl(0 0% 98%);
+  color: hsl(0, 0%, 3%);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    HSLa(159, 0%, 98%, 1),
+    HSLa(159, 0%, 3%, 0.34%)
+  );
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    HSLa(159, 0%, 3%, 0.34%),
+    HSLa(159, 0%, 98%, 1)
+  );
+}
+
+/* =====-===== | LAYOUT | =====-===== */
+
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  padding: 5rem;
+}
+
+.section .tittle {
+  margin-bottom: 1rem;
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: hsl(0 0% 98%);
+}
+
+#header {
+  border-bottom: 1px solid hsl(0 0% 98%);
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+#header.scroll {
+  background: rgba(255, 255, 255, 0.61);
+  box-shadow: 0px 0px 12px rgb(255, 255, 255);
+  transition: 0.3s;
+}
+
+#header.scroll .logo {
+  color: rgba(0, 0, 0, 0.582);
+  transition: 0.3s;
+}
+
+main {
+  margin-top: calc(4.5rem + 2rem);
+}
+
+/* =====-===== | LOGO | =====-===== */
+
+.logo {
+  font: 700 1.31rem 'Merriweather', sans-serif;
+  color: var(--tittle-color);
+}
+
+/* =====-===== | NAVGATION | =====-===== */
+
+nav {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: hsl(0, 0%, 3%);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: hsl(0 0% 98%);
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/* = | Ao Mostrar MENU | = */
+
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background: var(--body-color);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+/* = | Toggle MENU | = */
+
+.toggle {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .icon-list2 {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  transition: 0.5s;
+}
+
+nav.show .icon-list2 {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+/* =====-===== | HOME | =====-===== */
+
+#home {
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  position: absolute;
+  top: -8.3%;
+  right: -10%;
+  z-index: 0;
+}
+
+#home .image img {
+  position: relative;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+
+/* =====-===== | LORE | =====-===== */
+
+#lore .container {
+  margin: 0;
+}
+
+#lore .image {
+  position: relative;
+}
+
+#lore .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  position: absolute;
+  top: -8.3%;
+  left: -10%;
+  z-index: 0;
+}
+
+#lore .image img {
+  position: relative;
+}
+
+#lore .image img,
+#lore .image::before {
+  border-radius: 0.25rem;
+}
+
+#lore .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#lore .text p {
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+
+/* =====-===== | BUTTON PDF | =====-===== */
+
+.button2 {
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 700 1rem 'Merriweather', sans-serif;
+  transition: background 0.3s;
+  color: var(--tittle-color);
+  background-color: var(--text-color);
+}
+
+.button2:hover {
+  background: hsl(0 0% 98%);
+  color: hsl(0, 0%, 3%);
+}
+
+/* =====-===== | CHARACTER | =====-===== */
+
+.cards.grid {
+  gap: 2rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgb(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid hsl(0 0% 98%);
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: hsl(0 0% 98%);
+}
+
+.card .tittle {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* =====-===== | Coisas Que Fiz Solo | =====-===== */
+
+/* -- Classe -- */
+
+.card strong {
+  color: hsl(0 0% 98%);
+}
+
+.class img {
+  position: relative;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  max-width: 75%;
+  margin-left: 1.5rem;
+}
+
+.class-name {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.stats {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.hab {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* -- Atributos -- */
+
+.tree img {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  border-radius: 0.25rem;
+}
+
+.skill-tree {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+}
+
+.stats2 {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.main-stats {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+.combat-stats {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hab2 {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+.text {
+  color: black;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.mt {
+  color: hsl(0 0% 98%);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+.action {
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.command {
+  font-size: 0.9rem;
+}
+
+/* =====-===== | TESTIMONIALS | =====-===== */
+
+#testimonials header {
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials {
+  background: hsl(0, 0%, 25%);
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgb(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: rgb(0, 0, 0);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.375rem;
+  left: -1.875rem;
+  color: white;
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/* -- Swiper -- */
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--tittle-color);
+}
+
+/* =====-===== | CONTACT | =====-===== */
+
+#steam .grid {
+  gap: 4rem;
+}
+
+#steam .text p {
+  margin-bottom: 2rem;
+}
+
+#steam .button i {
+  font: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+/* =====-===== | FOOTER | =====-===== */
+
+footer {
+  background: rgba(255, 255, 255, 0.61);
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+footer p a {
+  color: var(--tittle-color);
+}
+
+footer .brand p {
+  color: var(--body-color);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--tittle-color);
+}
+
+footer .social a {
+  margin-right: 2rem;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
+
+/* -- Back To Top -- */
+
+.back-to-top {
+  background: rgba(255, 255, 255, 0.61);
+  color: var(--text-color);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.3rem;
+  clip-path: circle();
+  font-size: 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====-===== | MEDIA QUERIES | =====-===== */
+/* extra large devices: 1200 > */
+/* large devices: 1023 > */
+
+/* --- large devices: 992 > --- */
+@media (min-width: 992px) {
+  :root {
+    --tittle-font-size: 2.2rem;
+  }
+}
+/*-----------------------------*/
+
+/* medium devices: 767 > */
