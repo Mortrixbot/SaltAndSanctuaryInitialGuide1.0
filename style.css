@@ -303,6 +303,8 @@ nav.show .icon-list2 {
 #home .text p {
   margin-bottom: 2rem;
   max-width: 100%;
+  text-align: justify;
+  font-size: small;
 }
 
 /* =====-===== | LORE | =====-===== */
@@ -344,6 +346,8 @@ nav.show .icon-list2 {
 #lore .text p {
   margin-bottom: 2rem;
   max-width: 100%;
+  text-align: justify;
+  font-size: small;
 }
 
 /* =====-===== | BUTTON PDF | =====-===== */
@@ -647,11 +651,11 @@ footer .social a:hover {
 @media (min-width: 1200px) {
   /* Reusable Classes */
 
-  #home .text {
+  #home .text p {
     font-size: medium;
   }
 
-  #lore .text {
+  #lore .text p {
     font-size: medium;
   }
 
