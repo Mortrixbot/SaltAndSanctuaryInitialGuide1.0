@@ -267,6 +267,7 @@ nav.show .icon-list2 {
 
 #home .image {
   position: relative;
+  margin: 0 20px;
 }
 
 #home .image::before {
@@ -312,11 +313,12 @@ nav.show .icon-list2 {
 
 #lore .image {
   position: relative;
+  margin: 0 20px;
 }
 
 #lore .image::before {
   content: '';
-  height: 35%;
+  height: 100%;
   width: 100%;
   background: rgb(0, 0, 0);
   position: absolute;
@@ -400,8 +402,8 @@ nav.show .icon-list2 {
   position: relative;
   margin-top: 5rem;
   margin-bottom: 2rem;
-  max-width: 75%;
-  margin-left: 1.5rem;
+  max-width: 65%;
+  align-items: center;
 }
 
 .class-name {
@@ -645,6 +647,14 @@ footer .social a:hover {
 @media (min-width: 1200px) {
   /* Reusable Classes */
 
+  #home .text {
+    font-size: medium;
+  }
+
+  #lore .text {
+    font-size: medium;
+  }
+
   .container {
     max-width: 1120px;
     margin-left: auto;
@@ -702,6 +712,18 @@ footer .social a:hover {
 
   /*  HOME */
 
+  #home .image::before {
+    content: '';
+    height: 85%;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    left: 10%;
+    z-index: 0;
+  }
+
   #home .container {
     grid-auto-flow: column;
     justify-content: space-between;
@@ -719,6 +741,17 @@ footer .social a:hover {
   }
 
   /* LORE */
+
+  #lore .image::before {
+    content: '';
+    height: 22%;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    top: -3%;
+    left: -10%;
+    z-index: 0;
+  }
 
   #lore .container {
     grid-auto-flow: column;
